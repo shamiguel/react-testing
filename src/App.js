@@ -24,7 +24,7 @@ function App() {
       <h1>Welcome, party people!</h1>
       <p>Click the button to toggle the theme</p>
 
-      <button onClick={toggleTheme}>Current theme: {theme}</button>
+      <button onClick={toggleTheme} name='toggleTheme' data-testid='current-theme'>Current theme: {theme}</button>
 
       <button onClick={toggleHidden}>
         {showHidden ? 'Hide' : 'Show'} hidden content

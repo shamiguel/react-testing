@@ -15,7 +15,9 @@ test('App should render', () => {
 
 test('Button should render', () => {
   // TODO: change the expect to actually test something 😉
-  expect('no test written').toBe('tested');
+  render(<App />);
+  const buttons = screen.getAllByRole('button');
+  expect(screen.getAllByRole('button').length).toEqual(2);
 });
 
 /**
@@ -24,7 +26,10 @@ test('Button should render', () => {
  */
 test('theme button should update button text', () => {
   // TODO: change the expect to actually test something 😉
-  expect('no test written').toBe('tested');
+  render(<App />);
+  const button = screen.getByTestId('current-theme');
+  fireEvent.click(button);
+  expect(button.textContent).toBe('Current theme: dark');
 });
 
 // BONUS
@@ -32,7 +37,11 @@ test('theme button should update button text', () => {
 // e.g.: expect(element).toHaveStyle('color: #FFF');
 test('theme button should toggle styles', () => {
   // TODO: change the expect to actually test something 😉
-  expect('no test written').toBe('tested');
+  render(<App />);
+  const document = screen.getByName('body');
+  const button = screen.getByTestId('current-theme');
+  fireEvent.click(button);
+  expect(document).toHaveStyle('#FFF');
 });
 
 /**
